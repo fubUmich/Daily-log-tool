@@ -36,7 +36,7 @@ def get_log_file_name(date):
 def write_log(log):
     filename = get_log_file_name('today')
     with open(filename, 'a+') as log_file:
-        log_file.write('%s %s:%s %s\n' % (NOW.date(), NOW.hour, NOW.minute, log))
+        log_file.write('%s %02d:%02d %s\n' % (NOW.date(), NOW.hour, NOW.minute, log))
 
 
 def remove_whole_log():
