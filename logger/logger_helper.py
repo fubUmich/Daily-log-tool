@@ -29,19 +29,21 @@ def get_date_str(date):
 
 def get_log_file_name(date):
     date_str = get_date_str(date)
-    return 'logs/{date}.log'.format(date=str(date_str))
+    script_dir = os.path.dirname(__file__)
+    return '{script_dir}/logs/{date}.log'.format(script_dir=script_dir, date=str(date_str))
 
 
 def write_log(log):
     filename = get_log_file_name('today')
     with open(filename, 'a+') as log_file:
-        log_file.write('%s %02d:%02d %s\n' % (NOW.date(), NOW.hour, NOW.minute, log))
+        log_file.write('%s %s:%s %s\n' % (NOW.date(), NOW.hour, NOW.minute, log))
 
 
 def remove_whole_log():
     filename = get_log_file_name('today')
     with open(filename, 'w+') as log_file:
         log_file.write("removed at %s:%s\n" % (NOW.hour, NOW.minute))
+
 
 def remove_last_log(n):
     filename = get_log_file_name('today')
@@ -52,4 +54,3 @@ def remove_last_log(n):
 
         with open(filename, 'w') as log_file:
             log_file.writelines(lines)
-
