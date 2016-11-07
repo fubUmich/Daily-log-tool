@@ -3,15 +3,15 @@ A light weigh and easy to use command line tool to write daily working logs.
 
 # How to use
 ```
-python logger.py -h
+python logger/logger.py -h
 ```
 ## Write log
 ```
-python logger.py -l 'my log'
+python logger/logger.py -l 'my log'
 ```
 ## Show log
 ```
-python logger.py -s [-d date-of -log]
+python logger/logger.py -s [-d date-of -log]
 ```
 # Recommendation
 Add an alias for this command by the following steps:
